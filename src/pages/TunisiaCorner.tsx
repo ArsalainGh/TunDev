@@ -1,10 +1,8 @@
 import {
   ArrowUpRight,
   AtSign,
-  Calendar,
   Mail,
   MessagesSquare,
-  Plus,
   Users,
 } from "lucide-react";
 import { Reveal, SectionHead, TerminalWindow } from "../components/bits";
@@ -12,34 +10,16 @@ import { Reveal, SectionHead, TerminalWindow } from "../components/bits";
 /* ── facebook communities — TODO: verify/replace links ── */
 const FB_GROUPS = [
   {
-    name: "GDG Tunis",
-    members: "~1.4k followers",
-    desc: "Google Developer Group Tunis. The OGs — talks, trainings, and Google-tech events since forever.",
-    url: "https://www.facebook.com/gdgtunis/",
+    name: "التوانسة الي يحبوا البرمجة 🇹🇳 - Tunisian Developers & IT Geeks",
+    members: "135.4K members",
+    desc: "✨ مجتمع التّوانسة إلي يحبّوا البرمجة ✨\n\nمرحبا بيك في عائلتنا 🎉 شكون آحنا وعلاش نعملو في هذا؟ أحنا مجموعة من المبرمجين والمطّورين التوّانسة تلمّينا في مجتمع واحد باش نشاركو خبرتنا مع بعضنا، نصنعو محتوى باللّهجة التونسية ونزيدو في تونس حتّى ب شوي! 💖",
+    url: "https://www.facebook.com/groups/group.tpl/",
   },
   {
-    name: "GDG Sfax",
-    members: "active chapter",
-    desc: "The coastal sibling. DevFest energy, Flutter and cloud meetups down south.",
-    url: "https://gdg.community.dev/",
-  },
-  {
-    name: "Programmation & Dev Tunisie",
-    members: "~30k members", // TODO: verify
-    desc: "The big general group: homework help, freelance offers, and framework wars at 1am.",
-    url: "https://www.facebook.com/search/groups/?q=programmation%20tunisie",
-  },
-  {
-    name: "Tunisian Freelancers & Remote",
-    members: "~10k members", // TODO: verify
-    desc: "Where to find clients, how to price your work, and how to survive international payments.",
-    url: "https://www.facebook.com/search/groups/?q=tunisian%20freelancers",
-  },
-  {
-    name: "Women in Tech Tunisia",
-    members: "growing fast",
-    desc: "Talks, mentorship and real support for women entering tech. Zero gatekeeping, all signal.",
-    url: "https://www.facebook.com/search/groups/?q=women%20in%20tech%20tunisia",
+    name: "Le bon développeur 🇹🇳 المبرمج المناسب",
+    members: "210.0K members", // TODO: verify
+    desc: " Bienvenue dans Le bon développeur 🇹🇳 المبرمج المناسب, une communauté en ligne dédiée aux développeurs en Tunisie. Ce groupe est destiné à tous les développeurs, débutants ou expérimentés, qui cherchent à améliorer leurs compétences et à partager leurs connaissances.",
+    url: "https://www.facebook.com/share/g/1Jv5f2uqrL/",
   },
 ];
 
@@ -50,46 +30,6 @@ const DISCORDS = [
     members: "~2k members", // TODO: verify
     desc: "The chill server: homework help, memes, and a very active #show-your-project channel.",
     url: "#", // TODO: invite link
-  },
-  {
-    name: "GDG event servers",
-    members: "event-based",
-    desc: "Most local communities spin up a Discord around hackathons and talks — ask in the FB groups above.",
-    url: "#", // TODO
-  },
-  {
-    name: "Game Dev TN",
-    members: "tiny but passionate",
-    desc: "Unity, Godot, and game-jam teams recruiting at weird hours. Small servers are the best servers.",
-    url: "#", // TODO
-  },
-];
-
-/* ── local events ── */
-const EVENTS = [
-  {
-    name: "DevFest Tunisia",
-    tag: "yearly · autumn",
-    desc: "The GDG flagship: talks, workshops, swag, and hiring booths. Go once, network for a year.",
-    url: "https://gdg.community.dev/",
-  },
-  {
-    name: "IEEE hackathons & tech days",
-    tag: "recurring",
-    desc: "Student branches (INSAT, ENIT, ENIS…) run hackathons all year. Follow your uni's branch.",
-    url: "https://www.ieee.tn/",
-  },
-  {
-    name: "Tunisia Digital Summit",
-    tag: "yearly",
-    desc: "The big national conference where policy meets startups. Surprisingly good networking.",
-    url: "https://www.tunisiadigitalsummit.com/",
-  },
-  {
-    name: "Your uni's club days",
-    tag: "every semester",
-    desc: "Every ISET, ENIT, INSAT and FST club runs free workshop days. Underhyped. Actually go.",
-    url: "#",
   },
 ];
 
@@ -190,7 +130,7 @@ export default function TunisiaCorner() {
         <SectionHead
           kicker="ping tunisia.tn --community"
           title="Tunisia corner."
-          sub="The local side of the internet. Communities, events and people who get the context — the 4GB laptops, the shared drive of courses, the dream of remote work in euros."
+          sub="The local side of the internet. Communities and people who get the context — the 4GB laptops, the shared drive of courses, the dream of remote work in euros."
         />
       </Reveal>
 
@@ -245,70 +185,6 @@ export default function TunisiaCorner() {
             {"// placeholder links — drop your server invite in src/pages/TunisiaCorner.tsx"}
           </p>
         </Reveal>
-      </section>
-
-      {/* ── events ───────────────────────────────────────── */}
-      <section className="mt-20" aria-label="Events and hackathons">
-        <Reveal>
-          <h2 className="font-mono text-xl font-bold tracking-tight">
-            <span className="text-amber">##</span> events & hackathons
-          </h2>
-          <p className="mt-1 font-mono text-xs text-faint">
-            {"// free pizza is a valid networking strategy"}
-          </p>
-        </Reveal>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {EVENTS.map((e, i) => (
-            <Reveal key={e.name} delay={(i % 2) * 70}>
-              <a
-                href={e.url}
-                target={e.url.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
-                className="group flex h-full items-start gap-4 rounded-xl border border-border bg-surface p-6 acc-card"
-                style={{ "--acc": "#d29922" } as React.CSSProperties}
-              >
-                <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-amber/10 text-amber">
-                  <Calendar className="size-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h3 className="font-mono text-base font-bold tracking-tight">
-                      {e.name}
-                    </h3>
-                    <span className="font-mono text-[10px] text-faint">
-                      {e.tag}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {e.desc}
-                  </p>
-                </div>
-                <ArrowUpRight className="mt-1 size-4 shrink-0 text-faint transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-text" />
-              </a>
-            </Reveal>
-          ))}
-
-          {/* placeholder CTA card */}
-          <Reveal delay={210}>
-            <a
-              href="mailto:arsalaing@gmail.com"
-              className="group flex h-full items-start gap-4 rounded-xl border border-dashed border-border-strong/70 bg-transparent p-6 transition-colors hover:border-amber/50"
-            >
-              <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-surface2 text-muted transition-colors group-hover:text-amber">
-                <Plus className="size-5" />
-              </div>
-              <div>
-                <h3 className="font-mono text-base font-bold tracking-tight text-muted transition-colors group-hover:text-text">
-                  Know about an upcoming event?
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-faint">
-                  Hackathon, meetup, workshop — if it's happening in Tunisia, it
-                  belongs here. Tell us and we'll pin it.
-                </p>
-              </div>
-            </a>
-          </Reveal>
-        </div>
       </section>
 
       {/* ── accounts ─────────────────────────────────────── */}

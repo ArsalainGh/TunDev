@@ -1,8 +1,7 @@
 import {
   ArrowUpRight,
+  BookOpen,
   Brain,
-  Camera,
-  Eye,
   GitBranch,
   Heart,
   MonitorPlay,
@@ -39,23 +38,47 @@ const YT = [
   },
 ];
 
-/* ── instagram posts ── TODO: swap the "#" hrefs with real posts ── */
-const IG = [
+/* ── medium reads ── real articles, real links, no rot risk ── */
+const MEDIUM = [
   {
-    title: "Things I wish someone told me in L1",
-    desc: "A carousel of regret, formatted for your scrolling pleasure. Painfully accurate.",
+    title: "Escaping Tutorial Purgatory as a Software Developer",
+    desc: "How to actually use tutorials as a resource instead of a crutch you never put down.",
+    href: "https://medium.com/novice-programmers-toolkit/escaping-tutorial-purgatory-as-a-software-developer-968be4c85845",
   },
   {
-    title: "Study-with-me: exam season survival",
-    desc: "Two hours of ambient focus with a Tunisian student. Weirdly effective at 11pm.",
+    title: "From Tutorial Hell to Real Projects: How to Learn Programming",
+    desc: "Why hand-holding tutorials skip the exact struggle that makes things stick.",
+    href: "https://medium.com/@annasaaddev/from-tutorial-hell-to-real-projects-how-to-learn-programming-85194e36277f",
   },
   {
-    title: "Desk setups on a student budget",
-    desc: "Proof that 200 TND and good cable management beats 2000 TND of RGB.",
+    title: "Stop Watching Tutorials — Here's How to Actually Learn to Code",
+    desc: "The 80/20 rule nobody follows: code more than you watch, not the other way around.",
+    href: "https://levelup.gitconnected.com/stop-watching-tutorials-heres-how-to-actually-learn-to-code-bc1490481e48",
   },
   {
-    title: "A meme that explains pointers better than your professor",
-    desc: "You will laugh. You will understand. You will send it to your entire class.",
+    title: "Until You Actually Code, You're Not Learning",
+    desc: "One student's honest account of nearly becoming a tutorial-purgatory lifer.",
+    href: "https://abbybuilds.medium.com/until-you-actually-code-youre-not-learning-107a8aced16f",
+  },
+  {
+    title: "Cracking the Code of Imposter Syndrome as a Programmer",
+    desc: "You know more than you think — a short list of ways to prove it to yourself.",
+    href: "https://levelup.gitconnected.com/cracking-the-code-of-imposter-syndrome-as-a-programmer-21cfa291cd36",
+  },
+  {
+    title: "3 Ways to Go From Tutorials to Building Your Own Projects",
+    desc: "A dev who got her first job explains how she eased off the tutorial training wheels.",
+    href: "https://www.freecodecamp.org/news/how-to-go-from-coding-tutorials-to-building-your-own-projects-b9ab51074980/",
+  },
+  {
+    title: "The Balancing Act: Achieving Success Without Burning Out",
+    desc: "Extra hours aren't the fix if you're pouring them into the wrong things.",
+    href: "https://jaiin-maniish.medium.com/the-balancing-act-achieving-success-without-burning-out-b10773f4f55f",
+  },
+  {
+    title: "5 Telltale Signs of Burnout and How to Beat It",
+    desc: "Spot it before it's too late — the early warning signs most students brush off.",
+    href: "https://jaiin-maniish.medium.com/5-telltale-signs-of-burnout-and-how-to-beat-it-d59db4849a6a",
   },
 ];
 
@@ -112,28 +135,33 @@ export default function Tips() {
         </div>
       </section>
 
-      {/* ── instagram advice ───────────────────────────────── */}
-      <section className="mt-20" aria-label="Instagram advice">
+      {/* ── medium reads ───────────────────────────────────── */}
+      <section className="mt-20" aria-label="Medium reads">
         <Reveal>
           <h2 className="font-mono text-xl font-bold tracking-tight">
-            <span className="text-pink">##</span> doom-scroll productively
+            <span className="text-pink">##</span> read on the bus
           </h2>
           <p className="mt-1 font-mono text-xs text-faint">
-            {"// 4 posts worth the algorithm's interruption"}
+            {"// 8 Medium posts worth the 5-minute read"}
           </p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {IG.map((p, i) => (
+          {MEDIUM.map((p, i) => (
             <Reveal key={p.title} delay={i * 70}>
               <a
-                href="#" // TODO: real IG post link
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
                 className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 acc-card"
                 style={{ "--acc": "#f778ba" } as React.CSSProperties}
               >
-                <span className="inline-flex w-fit items-center gap-1.5 rounded-md bg-pink/10 px-2 py-1 font-mono text-[10px] text-pink">
-                  <Camera className="size-3" />
-                  view post
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex w-fit items-center gap-1.5 rounded-md bg-pink/10 px-2 py-1 font-mono text-[10px] text-pink">
+                    <BookOpen className="size-3" />
+                    read
+                  </span>
+                  <ArrowUpRight className="size-4 text-faint transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-text" />
+                </div>
                 <h3 className="mt-4 font-semibold leading-snug text-text">
                   {p.title}
                 </h3>
@@ -144,11 +172,6 @@ export default function Tips() {
             </Reveal>
           ))}
         </div>
-        <Reveal>
-          <p className="mt-4 font-mono text-[11px] text-faint">
-            {"// note: these are placeholder links — swap them with your saved posts in src/pages/Tips.tsx"}
-          </p>
-        </Reveal>
       </section>
 
       {/* ── written by us ──────────────────────────────────── */}
@@ -368,22 +391,22 @@ export default function Tips() {
               </div>
               <div>
                 <p className="flex items-center gap-2 font-mono text-sm font-bold text-green">
-                  <Eye className="size-4" /> the eyes
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  20-20-20 rule: every 20 minutes, look at something ~6 meters
-                  away for 20 seconds. Lower the brightness at night. Your eyes
-                  aren't peripherals — there's no hot-swap policy.
-                </p>
-              </div>
-              <div>
-                <p className="flex items-center gap-2 font-mono text-sm font-bold text-green">
                   <PersonStanding className="size-4" /> the body
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
                   Water before the fourth coffee. Shoulders back, screen at eye
                   level. A 10-minute walk fixes bugs your brain can't — this is
                   documented behavior.
+                </p>
+              </div>
+              <div>
+                <p className="flex items-center gap-2 font-mono text-sm font-bold text-green">
+                  <GitBranch className="size-4" /> the habits
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  20-20-20 rule for your eyes: every 20 minutes, look 6 meters
+                  away for 20 seconds. Ship small commits often. Progress you
+                  can see beats progress you have to imagine.
                 </p>
               </div>
             </div>

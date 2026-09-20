@@ -249,11 +249,11 @@ const STEPS = [
 ];
 
 const SOCIALS = [
-  { icon: MessagesSquare, label: "discord", href: "#", color: "#7289da" }, // TODO: invite link
-  { icon: Users, label: "facebook group", href: "#", color: "#58a6ff" }, // TODO: group link
-  { icon: FolderGit2, label: "github", href: "https://github.com/ArsalainGh", color: "#e6edf3" },
-  { icon: Camera, label: "instagram", href: "#", color: "#f778ba" }, // TODO: profile link
-  { icon: Mail, label: "email", href: "mailto:arsalaing@gmail.com", color: "#3fb950" },
+  { icon: MessagesSquare, label: "discord", href: "#", color: "#7289da", external: false }, // TODO: invite link
+  { icon: Users, label: "facebook group", href: "#", color: "#58a6ff", external: false }, // TODO: group link
+  { icon: FolderGit2, label: "github", href: "https://github.com/ArsalainGh", color: "#e6edf3", external: true },
+  { icon: Camera, label: "instagram", href: "https://www.instagram.com/arsalain.gharsallaoui", color: "#f778ba", external: true },
+  { icon: Mail, label: "email", href: "mailto:arsalaing@gmail.com", color: "#3fb950", external: false },
 ];
 
 export default function Home() {
@@ -430,23 +430,29 @@ export default function Home() {
                 worth sharing? Reach out anywhere:
               </p>
               <div className="mt-9 flex flex-wrap items-start justify-center gap-4">
-                {SOCIALS.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    className="group flex w-20 flex-col items-center gap-2.5"
-                  >
-                    <span className="grid size-13 place-items-center rounded-xl border border-border bg-surface p-3.5 lift-card">
-                      <s.icon
-                        className="size-5 transition-colors"
-                        style={{ color: s.color }}
-                      />
-                    </span>
-                    <span className="font-mono text-[11px] leading-tight text-faint transition-colors group-hover:text-text">
-                      {s.label}
-                    </span>
-                  </a>
-                ))}
+                {SOCIALS.map((s) => {
+                  const isExternal = s.href.startsWith("http");
+                
+                  return (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target={isExternal ? "_blank" : "_self"}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      className="group flex w-20 flex-col items-center gap-2.5"
+                    >
+                      <span className="grid size-13 place-items-center rounded-xl border border-border bg-surface p-3.5 lift-card">
+                        <s.icon
+                          className="size-5 transition-colors"
+                          style={{ color: s.color }}
+                        />
+                      </span>
+                      <span className="font-mono text-[11px] leading-tight text-faint transition-colors group-hover:text-text">
+                        {s.label}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
               <p className="mt-8 font-mono text-xs text-faint">
                 {"// the repo, the discord and the fb group are one person away"}

@@ -1,9 +1,9 @@
 import { Star, FolderGit2, Link2, ArrowUpRight } from "lucide-react";
 
 /* ── project + author links ── */
-const GITHUB_PROFILE = "https://github.com/ArsalainGh";
-const GITHUB_REPO = "https://github.com/ArsalainGh"; // TODO: point to the tundev repo once it exists
-const GITHUB_STAR = "https://github.com/ArsalainGh";
+const GITHUB_PROFILE = "https://arsalaingh.github.io/cyberpunk_portfolio/";
+const GITHUB_REPO = "https://github.com/ArsalainGh/TunDev"; // TODO: point to the tundev repo once it exists
+const GITHUB_STAR = "https://github.com/ArsalainGh/TunDev";
 const AUTHOR = "Arsalain Gharsallaoui";
 
 const ITEMS = [
