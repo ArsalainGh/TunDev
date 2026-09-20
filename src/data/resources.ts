@@ -568,7 +568,31 @@ export const RESOURCES: Resource[] = [
     url: "https://www.coursera.org/",
     category: "platforms",
   },
-
+  // {
+  //   title: "StudyGarden",
+  //   desc: "a space for learning ....",
+  //   url: "https://www.studygarden.tn/",
+  //   category: "platforms",
+  // },
+  {
+    title: "DataCamp",
+    desc: "a space for learning .contact Dr.Imed romdthani for free access",
+    url: "https://www.datacamp.com/",
+    category: "platforms",
+  },
+  {
+    title: "YourLinuxGuide",
+    desc: "A friendly, jargon-free guide to the world's most powerful operating system. Ten short topics take you from “what even is Linux?” to installing it yourself Made by Me",
+    url: "https://arsalaingh.github.io/How_To_Linux/",
+    category: "platforms",
+  },
+  {
+    title: "SecureDevHub",
+    desc: "A free, open-source security guide for web developers. Learn the vulnerabilities that take sites down, fix them with real code Made by Me",
+    url: "https://arsalaingh.github.io/SecureDevHub/",
+    category: "platforms",
+  },
+  
   /* ── tunisian creators & orgs ────────────────────────────── */
   {
      title: "Imen Selmi",

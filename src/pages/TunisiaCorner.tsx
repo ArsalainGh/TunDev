@@ -29,7 +29,7 @@ const DISCORDS = [
     name: "Tunisian Dev Hangout",
     members: "~2k members", // TODO: verify
     desc: "The chill server: homework help, memes, and a very active #show-your-project channel.",
-    url: "#", // TODO: invite link
+    url: "#", // TODO: invite link(never ba5el wlh)
   },
 ];
 
@@ -63,8 +63,8 @@ const ACCOUNTS = [
 
 /* ── the fun part ── */
 const YOU_KNOW = [
-  "your laptop has 4GB of RAM and 47 open documentation tabs. it survives.",
-  "you've said 'the wifi cut mid-deploy' as an excuse. because it was true.",
+  "your laptop has 4GB of RAM and 47 open documentation tabs. it survives.",//not me hmd 32ddr5
+  "you've said 'the wifi cut mid-deploy' as an excuse. because it was true.",/*3icha ka7la wlh */
   "the family asks you to fix the printer. you fix the printer.",
   "you learned french for school, english for the docs, and darija for debugging rage.",
   "'make me an app like facebook but better' — every relative, every wedding.",

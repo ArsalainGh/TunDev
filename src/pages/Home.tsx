@@ -346,7 +346,7 @@ export default function Home() {
               </p>
               <p className="pt-2 font-mono text-sm text-faint">
                 — students from tunisia, still figuring it out{" "}
-                <span className="text-green">// just like you</span>
+                <span className="text-green">// just like you(except I use Arch Btw)</span>
               </p>
             </div>
           </Reveal>
