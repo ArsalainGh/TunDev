@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── theme: github-dark / code-editor inspired ───────────────── */
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-surface2: #1c2129;
+  --color-border: #30363d;
+  --color-border-strong: #3d444d;
+  --color-text: #e6edf3;
+  --color-muted: #9198a1;
+  --color-faint: #6e7681;
+  --color-accent: #58a6ff;
+  --color-green: #3fb950;
+  --color-purple: #bc8cff;
+  --color-red: #f85149;
+  --color-amber: #d29922;
+  --color-cyan: #39c5cf;
+  --color-pink: #f778ba;
+  --color-orange: #ffa657;
+  --color-sky: #79c0ff;
+
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* faint editor-grid texture — barely there, like an editor's indent guides */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(139 148 158 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(139 148 158 / 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 100%);
+}
+
+::selection {
+  background-color: rgb(88 166 255 / 0.28);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 6px;
+  border: 2px solid var(--color-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* ── scroll reveal (Intersection Observer adds .is-visible) ────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* mount animation for hero + filtered lists */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* blinking terminal caret */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+/* accent-colored hover card (set --acc inline per card) */
+.acc-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.acc-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--acc, #58a6ff) 45%, transparent);
+  background-color: color-mix(in oklab, var(--acc, #58a6ff) 4%, var(--color-surface));
+  box-shadow: 0 18px 50px -18px color-mix(in oklab, var(--acc, #58a6ff) 35%, transparent);
+}
+
+/* plain lift card for neutral cards */
+.lift-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+.lift-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-fade-up,
+  .caret {
+    animation: none;
+  }
+}
