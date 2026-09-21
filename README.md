@@ -1,5 +1,5 @@
 # > tundev
-
+![Patrick Jane](./public/images/Patrick_Jane.png)
 > `/ˈtuːn.dɛv/` — you're not behind. you just started.
 
 A free, no-fluff resource hub **for Tunisian IT students who feel lost** — built by students who were just as lost. Dark, code-editor-themed, and hand-rolled at 2am with genuine care and questionable amounts of coffee.
